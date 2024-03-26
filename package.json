@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@binance/connector-typescript": "^0.3.6",
+    "@netlify/plugin-nextjs": "^4.41.3",
     "axios": "^1.6.8",
     "ccxt": "^4.2.75",
     "dotenv": "^16.4.5",
