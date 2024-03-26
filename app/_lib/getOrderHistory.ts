@@ -1,9 +1,14 @@
 import { Spot, RestTradeTypes } from "@binance/connector-typescript";
+import { cookies } from "next/headers";
 import { useState } from "react";
 
 export async function GetOrderHistory(nameAsset: string) {
-  const API_KEY = process.env.API_KEY;
-  const API_SECRET = process.env.API_SECRET;
+  const cookieStore = cookies()
+  const key:any = cookieStore.get('data');
+  let obj = JSON.parse(key.value);
+
+  const API_KEY = obj.API_KEY;
+  const API_SECRET = obj.API_SECRET;
   const BASE_URL = process.env.BASE_URL;
 
   let historyBuy:{

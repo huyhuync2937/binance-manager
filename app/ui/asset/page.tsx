@@ -1,12 +1,11 @@
-import { Spot } from "@binance/connector-typescript";
-import { GetAsset } from "../../_lib/getAsset";
-import { GetPrice } from "@/app/_lib/getPrice";
-import { GetOrderHistory } from "@/app/_lib/getOrderHistory";
 import Link from "next/link";
 import { GetTotalAsset } from "@/app/_lib/getTotalAsset";
+import { cookies } from "next/headers";
 
 export default async function TotalAsset() {
-
+  const cookieStore = cookies()
+  const key:any = cookieStore.get('data');
+  let obj = JSON.parse(key.value);
   const newArr = await GetTotalAsset();
 
   const unPNL = newArr.reduce((accumulator, currentItem) => {
